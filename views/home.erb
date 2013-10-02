@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title><%= @city %>'s Weather</title>
+</head>
+<body>
+<center><header><h1>The weather in <%= @city %> is...</h1></header>
+<figure class="icons">
+		<canvas id="<%= @icon %>" width="100" height="100"></canvas>
+		</figure>
+		<script src="skycons/skycons.js"></script>
+		<script>
+		var icons = new Skycons({"color": "black"});
+		icons.set("<%= @icon %>", <%= 'Skycons.' + @icon.upcase.gsub!('-','_') %>);
+		icons.pause();
+		</script></br>
+
+		<h2><%= @temperature %> °C<h2>
+		<h1><%= @forecast %></h1></center>
+</body>
+</html>
