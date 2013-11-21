@@ -17,15 +17,15 @@ end
 get'/' do
 
 	result = request.location
-	lat = result.latitude
-	long = result.longitude
+	@lat = result.latitude
+	@long = result.longitude
 
 	city = request.location.city
 	@city = city
 
-	forecast = ForecastIO.forecast(lat, long)
+	forecast = ForecastIO.forecast(@lat, @long)
 	@forecast = forecast.currently.summary
-	@temperature = forecast.currently.temperature.round
+	@temperature = forecast.currently.temperature
 	@icon = forecast.currently.icon
 
 erb :home
